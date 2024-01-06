@@ -18,7 +18,7 @@ class Program
         // Convert the Color input into Hex code
         string hexCode = ColorToHex(color);
 
-        // Display the result
+        // Displaying the result
         Console.WriteLine($"\nThe Hex code of : {colour} will be {hexCode}");
 
         // Check for the color to be simple
