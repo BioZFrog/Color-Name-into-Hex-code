@@ -1,0 +1,44 @@
+using System;
+using System.Drawing;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("-------->Color Name into Hex Code<--------");
+        Console.WriteLine("       --------->BY BIOZFROG<---------\n");
+
+        // Ask for a Color name
+        Console.WriteLine("Enter a Color: ");
+        string colour = Console.ReadLine();
+
+        // Create a Color object on the base of output
+        Color color = Color.FromName(colour);
+
+        // Convert the Color input into Hex code
+        string hexCode = ColorToHex(color);
+
+        // Display the result
+        Console.WriteLine($"\nThe Hex code of : {colour} will be {hexCode}");
+
+        // Check for the color to be simple
+        if(hexCode == "000000")
+        {
+            Console.WriteLine("The given Hex code is wrong due to the Color being too complicated or not a color, please try a simple color");
+        }
+    }
+
+    // Color into Hex Function
+    static string ColorToHex(Color color)
+    {
+        //Use the ToArgb method to get the ARGB value of the color
+        int argbValue = color.ToArgb();
+
+        // Convert ARGB value into the Hex values
+        string hexCode = argbValue.ToString("X8");
+
+        // Extracting the hex code value 
+        hexCode = hexCode.Substring(2, 6);
+
+        return hexCode;
+    }
